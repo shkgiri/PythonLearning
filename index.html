@@ -6,12 +6,28 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/d3-dispatch@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-quadtree@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-timer@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-force@3"></script>
-<script>
+import React, { useState } from "react";
+import DeckGL, { OrthographicView } from "deck.gl";
 
-const simulation = d3.forceSimulation(nodes);
+import renderLayers from "./Layers";
 
-</script>
+const view = new OrthographicView({ fov: 50 });
+
+export default () => {
+  const [viewport] = useState({
+    positon: [0, 0, 0],
+    width: window.innerWidth,
+    height: window.innerHeight,
+    target: [0, 0],
+    zoom: 1
+  });
+
+  return (
+    <DeckGL
+      views={view}
+      initialViewState={viewport}
+      controller={true}
+      layers={renderLayers()}
+    />
+  );
+};
