@@ -6,5 +6,10 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
+<script type="module">
 
-import {ForceGraph} from "@d3/force-directed-graph"
+import {forceSimulation} from "https://cdn.skypack.dev/d3-force@3";
+
+const simulation = forceSimulation(nodes);
+
+</script>
