@@ -6,10 +6,12 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<script type="module">
+<script src="https://cdn.jsdelivr.net/npm/d3-dispatch@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-quadtree@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-timer@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-force@3"></script>
+<script>
 
-import {forceSimulation} from "https://cdn.skypack.dev/d3-force@3";
-
-const simulation = forceSimulation(nodes);
+const simulation = d3.forceSimulation(nodes);
 
 </script>
